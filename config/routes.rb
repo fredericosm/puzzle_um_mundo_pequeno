@@ -1,4 +1,7 @@
 PuzzleUmMundoPequeno::Application.routes.draw do
+  root to: "friends#index"
+  resources :friends
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

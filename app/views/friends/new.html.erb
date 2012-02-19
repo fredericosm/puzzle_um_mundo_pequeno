@@ -1,0 +1,8 @@
+<h1>Adicionar Amigo</h1>
+
+<%= form_for @friend do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_field :latitude %>
+  <%= f.text_field :longitude %>
+  <%= f.submit "Adicionar" %>
+<% end %>

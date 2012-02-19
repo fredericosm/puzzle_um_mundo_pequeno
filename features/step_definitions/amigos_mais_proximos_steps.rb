@@ -12,11 +12,13 @@ Dado /^os seguintes amigos cadastrados:$/ do |friends|
     "Novo Hamburgo" => [-29.68507,  -51.128311]
   }
   
-  table.hashes.each do |row|
+  friends.hashes.each do |row|
     find('[rel="add-friend"]').click
     fill_in 'friend_name', with: row[:nome]
-    fill_in 'friend_latitude',  with: locations[row[:cidade]][0]
-    fill_in 'friend_longitude', with: locations[row[:cidade]][1]
+    lat, lng = locations[row[:local]]
+    fill_in 'friend_latitude', with: lat
+    fill_in 'friend_longitude', with: lng
+    click_button :submit
   end
 end
 
