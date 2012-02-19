@@ -22,10 +22,13 @@ Dado /^os seguintes amigos cadastrados:$/ do |friends|
   end
 end
 
-Dado /^que eu estou visitando "([^"]*)"$/ do |arg1|
-  pending
+Dado /^que eu estou visitando "([^"]*)"$/ do |friend_name|
+  @friend = Friend.find_by_name(friend_name)
+  visit friend_path(@friend)
 end
 
-Então /^os três amigos mais próximos devem ser "([^"]*)", "([^"]*)" e "([^"]*)"$/ do |arg1, arg2, arg3|
-  pending
+Então /^os três amigos mais próximos devem ser "([^"]*)", "([^"]*)" e "([^"]*)"$/ do |*friends|
+  within '[rel="closer-friends"]' do
+    p page
+  end
 end

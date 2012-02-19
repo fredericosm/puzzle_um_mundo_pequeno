@@ -1,1 +1,20 @@
+<h1>Meus amigos</h1>
+
 <%= link_to "Adicionar Amigo", new_friend_path, rel: "add-friend" %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= content_tag_for(:tr, @friends) do |f| %>
+      <td><%= link_to f.name, friend_path(f) %></td>
+      <td><%= f.latitude %></td>
+      <td><%= f.longitude %></td>
+    <% end %>
+  </tbody>
+</table>
